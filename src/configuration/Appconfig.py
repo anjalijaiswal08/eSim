@@ -1,18 +1,18 @@
 #===============================================================================
 #
 #          FILE: Appconfig.py
-# 
-#         USAGE: --- 
-# 
-#   DESCRIPTION: This define all configuration used in Application. 
-# 
+#
+#         USAGE: ---
+#
+#   DESCRIPTION: This define all configuration used in Application.
+#
 #       OPTIONS: ---
 #  REQUIREMENTS: ---
 #          BUGS: ---
 #         NOTES: ---
 #        AUTHOR: Fahim Khan, fahim.elex@gmail.com
 #  ORGANIZATION: eSim team at FOSSEE, IIT Bombay.
-#       CREATED: Wednesday 04 February 2015 
+#       CREATED: Wednesday 04 February 2015
 #      REVISION:  ---
 #===============================================================================
 
@@ -20,7 +20,7 @@
 from PyQt4 import QtGui
 import os
 import json
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 
 
 class Appconfig(QtGui.QWidget):
@@ -28,7 +28,7 @@ class Appconfig(QtGui.QWidget):
         All configuration goes here.
         May change in future for code optimization.
         """
-        
+
         #Home directory
         home = os.path.join(os.path.expanduser("~"),"eSim-Workspace")
         default_workspace = {"workspace":home}
@@ -46,40 +46,34 @@ class Appconfig(QtGui.QWidget):
 
         parser_esim = SafeConfigParser()
         parser_esim.read(os.path.join(os.path.expanduser("~"), os.path.join('.esim','config.ini')))
-        modelica_map_json = parser_esim.get('eSim', 'MODELICA_MAP_JSON')        
+        modelica_map_json = parser_esim.get('eSim', 'MODELICA_MAP_JSON')
         try:
             project_explorer = json.load(open(dictPath))
         except:
             project_explorer= {}
         process_obj = []
-        
+
         def __init__(self):
             super(Appconfig, self).__init__()
             #Application Details
             self._APPLICATION = 'eSim'
             self._VERSION = 'v1.1'
             self._AUTHOR = 'Fahim'
-        
+
             #Application geometry setting
             self._app_xpos = 100
             self._app_ypos = 100
             self._app_width = 600
             self._app_heigth = 400
-            
-         
+
+
         def print_info(self, info):
             self.noteArea['Note'].append('[INFO]: ' + info)
-            
-            
+
+
         def print_warning(self, warning):
             self.noteArea['Note'].append('[WARNING]: ' + warning)
-           
-            
+
+
         def print_error(self, error):
             self.noteArea['Note'].append('[ERROR]: ' + error)
-            
-            
-            
-            
-           
-            
