@@ -76,8 +76,8 @@ class ProjectExplorer(QtGui.QWidget):
 
     def openProject(self):
         self.indexItem =self.treewidget.currentIndex()
-        filename= self.indexItem.data().toString()
-        self.filePath= self.indexItem.sibling(self.indexItem.row(), 1).data().toString()
+        filename= str(self.indexItem.data())
+        self.filePath= str(self.indexItem.sibling(self.indexItem.row(), 1).data())
         self.obj_appconfig.print_info('The current project is ' + self.filePath)
 
         self.textwindow = QtGui.QWidget()
@@ -120,8 +120,8 @@ class ProjectExplorer(QtGui.QWidget):
 
     def removeProject(self):
         self.indexItem =self.treewidget.currentIndex()
-        filename= self.indexItem.data().toString()
-        self.filePath= self.indexItem.sibling(self.indexItem.row(), 1).data().toString()
+        filename= str(self.indexItem.data())
+        self.filePath= str(self.indexItem.sibling(self.indexItem.row(), 1).data())
         self.int = self.indexItem.row()
         self.treewidget.takeTopLevelItem(self.int)
 
@@ -133,8 +133,8 @@ class ProjectExplorer(QtGui.QWidget):
 
     def refreshProject(self):
         self.indexItem =self.treewidget.currentIndex()
-        filename= self.indexItem.data().toString()
-        self.filePath= str(self.indexItem.sibling(self.indexItem.row(), 1).data().toString())
+        filename= str(self.indexItem.data())
+        self.filePath= str(self.indexItem.sibling(self.indexItem.row(), 1).data())
         filelistnew= os.listdir(os.path.join(self.filePath))
         parentnode = self.treewidget.currentItem()
         count = parentnode.childCount()
