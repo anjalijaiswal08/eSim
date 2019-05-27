@@ -19,8 +19,14 @@ class openSub(QtGui.QWidget):
                 None, "Open File", "../SubcircuitLibrary"))
         if self.editfile:
             self.obj_Appconfig = Appconfig()
+<<<<<<< HEAD
             self.obj_Appconfig.current_subcircuit['SubcircuitName'] \
                 = self.editfile
+=======
+            self.obj_Appconfig.current_subcircuit['SubcircuitName'] = (
+                self.editfile
+            )
+>>>>>>> 7e3bf90... projectManagement, ngSpiceToModellica, subcircuit
             self.schname = os.path.basename(self.editfile)
             self.editfile = os.path.join(self.editfile, self.schname)
             self.cmd = "eeschema " + self.editfile + ".sch "

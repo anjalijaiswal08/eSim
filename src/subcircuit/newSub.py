@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from PyQt4 import QtGui, QtCore  # noqa
+=======
+from PyQt4 import QtGui
+>>>>>>> 7e3bf90... projectManagement, ngSpiceToModellica, subcircuit
 from projManagement.Validation import Validation
 from configuration.Appconfig import Appconfig
 from projManagement import Worker
@@ -49,6 +53,7 @@ class NewSub(QtGui.QWidget):
                 # print "Some Thing Went Wrong"
                 self.msg = QtGui.QErrorMessage(self)
                 self.msg.showMessage(
+<<<<<<< HEAD
                     'Unable to create subcircuit. Please make sure\
                      you have write permission on ' +
                     self.schematic_path)
@@ -56,6 +61,15 @@ class NewSub(QtGui.QWidget):
 
             self.obj_appconfig.current_subcircuit['SubcircuitName'] \
                 = self.schematic_path
+=======
+                    'Unable to create subcircuit. Please make sure you have'
+                    + 'write permission on '
+                    + self.schematic_path)
+                self.msg.setWindowTitle("Error Message")
+
+            self.obj_appconfig.current_subcircuit['SubcircuitName'] = \
+                self.schematic_path
+>>>>>>> 7e3bf90... projectManagement, ngSpiceToModellica, subcircuit
 
         elif self.reply == "CHECKEXIST":
             # print "Project already exist"
@@ -63,8 +77,13 @@ class NewSub(QtGui.QWidget):
             self.msg.showMessage(
                 'The subcircuit "' +
                 self.create_schematic +
+<<<<<<< HEAD
                 '" already exist.Please select the different name \
                 or delete existing subcircuit')
+=======
+                '" already exist.Please select the different name or delete'
+                + 'existing subcircuit')
+>>>>>>> 7e3bf90... projectManagement, ngSpiceToModellica, subcircuit
             self.msg.setWindowTitle("Error Message")
 
         elif self.reply == "CHECKNAME":
