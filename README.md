@@ -6,8 +6,13 @@ It is released under GNU GPL License. It runs on Ubuntu Linux, Windows XP and Wi
 
 eSim has been successfully ported to low cost FOSSEE laptop (http://laptop.fossee.in)
 
+<<<<<<< HEAD
 ## Pre-requisites
 1. Python 3
+=======
+##Pre-requisites
+1. Python 3.0+
+>>>>>>> cc6e9a4... python calls changed to python3
 2. PyQt4
 3. Matplotlib
 4. NgSpice 
