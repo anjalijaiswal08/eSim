@@ -45,8 +45,14 @@ class ProjectExplorer(QtGui.QWidget):
             os.path.join(parents)
             if os.path.exists(parents):
                 pathlist = parents.split(os.sep)
+<<<<<<< HEAD
                 parentnode = QtGui.QTreeWidgetItem(self.treewidget,
                                                    [pathlist[-1], parents])
+=======
+                parentnode = QtGui.QTreeWidgetItem(
+                    self.treewidget, [pathlist[-1], parents]
+                    )
+>>>>>>> 7c7d1aa... documentation kicadtongspice [9/9]
                 for files in children:
                     childnode = QtGui.QTreeWidgetItem(  # noqa
                         parentnode, [files, os.path.join(parents, files)])
