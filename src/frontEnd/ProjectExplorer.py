@@ -11,7 +11,7 @@ class ProjectExplorer(QtGui.QWidget):
     def __init__(self):
         """
         This method is doing following tasks:
-            a)initializing objects used in full program.
+            a)Working as a constructor for class ProjectExplorer.
             b)view of project explorer area.
         """
         QtGui.QWidget.__init__(self)
@@ -46,6 +46,7 @@ class ProjectExplorer(QtGui.QWidget):
             if os.path.exists(parents):
                 pathlist = parents.split(os.sep)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 parentnode = QtGui.QTreeWidgetItem(self.treewidget,
                                                    [pathlist[-1], parents])
 =======
@@ -53,6 +54,9 @@ class ProjectExplorer(QtGui.QWidget):
                     self.treewidget, [pathlist[-1], parents]
                     )
 >>>>>>> 7c7d1aa... documentation kicadtongspice [9/9]
+=======
+                parentnode = QtGui.QTreeWidgetItem(self.treewidget, [pathlist[-1], parents])
+>>>>>>> 2d413b9... Minor changes
                 for files in children:
                     childnode = QtGui.QTreeWidgetItem(  # noqa
                         parentnode, [files, os.path.join(parents, files)])
