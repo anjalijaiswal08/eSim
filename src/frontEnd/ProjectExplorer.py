@@ -24,20 +24,20 @@ class ProjectExplorer(QtGui.QWidget):
 
         # CSS
         self.treewidget.setStyleSheet(" \
-        QTreeView { border-radius: 15px; border: 1px solid gray; padding: \
-        5px; width: 200px; height: 150px;  } \
-        QTreeView::branch:has-siblings:!adjoins-item { border-image:\
-         url(../../images/vline.png) 0; } \
-        QTreeView::branch:has-siblings:adjoins-item { border-image:\
-         url(../../images/branch-more.png) 0; } \
-        QTreeView::branch:!has-children:!has-siblings:\
-        adjoins-item { border-image: url(../../images/branch-end.png) 0; } \
-        QTreeView::branch:has-children:!has-siblings:closed, \
-        QTreeView::branch:closed:has-children:has-siblings { border-image:\
-         none; image: url(../../images/branch-closed.png); } \
-        QTreeView::branch:open:has-children:!has-siblings, \
-        QTreeView::branch:open:has-children:has-siblings { border-image: \
-        none; image: url(../../images/branch-open.png); } \
+            QTreeView::branch:has-siblings:!adjoins-item { \
+            border-image: url(../../images/vline.png) 0;} \
+            QTreeView::branch:has-siblings:adjoins-item { \
+            border-image: url(../../images/branch-more.png) 0; } \
+            QTreeView::branch:!has-children:!has-siblings:adjoins-item { \
+            border-image: url(../../images/branch-end.png) 0; } \
+            QTreeView::branch:has-children:!has-siblings:closed, \
+            QTreeView::branch:closed:has-children:has-siblings { \
+            border-image: none; \
+            image: url(../../images/branch-closed.png); } \
+            QTreeView::branch:open:has-children:!has-siblings, \
+            QTreeView::branch:open:has-children:has-siblings  { \
+            border-image: none; \
+            image: url(../../images/branch-open.png); } \
         ")
 
         for parents, children in list(
@@ -45,6 +45,7 @@ class ProjectExplorer(QtGui.QWidget):
             os.path.join(parents)
             if os.path.exists(parents):
                 pathlist = parents.split(os.sep)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 parentnode = QtGui.QTreeWidgetItem(self.treewidget,
@@ -57,6 +58,11 @@ class ProjectExplorer(QtGui.QWidget):
 =======
                 parentnode = QtGui.QTreeWidgetItem(self.treewidget, [pathlist[-1], parents])
 >>>>>>> 2d413b9... Minor changes
+=======
+                parentnode = QtGui.QTreeWidgetItem(
+                    self.treewidget, [pathlist[-1], parents]
+                    )
+>>>>>>> 2997819... treeqidget fixed
                 for files in children:
                     childnode = QtGui.QTreeWidgetItem(  # noqa
                         parentnode, [files, os.path.join(parents, files)])
@@ -74,9 +80,9 @@ class ProjectExplorer(QtGui.QWidget):
         parentnode = QtGui.QTreeWidgetItem(
             self.treewidget, [pathlist[-1], parents])
         for files in children:
-            childnode = QtGui.QTreeWidgetItem( # noqa
-                parentnode, [files, os.path.join(parents, files)] # noqa
-                ) # noqa
+            childnode = QtGui.QTreeWidgetItem(  # noqa
+                parentnode, [files, os.path.join(parents, files)]  # noqa
+                )  # noqa
 
         (
             self.obj_appconfig.
